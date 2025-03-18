@@ -1,0 +1,35 @@
+﻿<Window
+    x:Class="BlankCoreApp1.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="700"
+    Height="400"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button
+                Margin="5"
+                Command="{Binding OpenCommand}"
+                CommandParameter="ViewA"
+                Content="模块A" />
+            <Button
+                Margin="5"
+                Command="{Binding OpenCommand}"
+                CommandParameter="ViewB"
+                Content="模块B" />
+            <Button
+                Margin="5"
+                Command="{Binding OpenCommand}"
+                CommandParameter="ViewC"
+                Content="模块C" />
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ModuleContent" />
+    </Grid>
+</Window>
