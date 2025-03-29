@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:at="clr-namespace:MainModule.AttachProperties"
     Title="{Binding Title}"
     Width="700"
     Height="400"
@@ -13,36 +14,37 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Button
+            <Button at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding OpenCommand}"
                 CommandParameter="ViewA"
                 Content="模块A" />
-            <Button
+            <Button 
+                at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding OpenCommand}"
                 CommandParameter="ViewB"
                 Content="模块B" />
-            <Button
+            <Button at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding BackCommand}"
                 CommandParameter="ViewB"
-                Content="👈上一步" />
-            <Button
+                Content="上一步" />
+            <Button  at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding NextCommand}"
                 CommandParameter="ViewB"
-                Content="👉下一步" />
-            <Button
+                Content="下一步" />
+            <Button     at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding OpenDialogCommand}"
                 CommandParameter="DialogView"
                 Content="打开对话框" />
-            <Button
+            <Button     at:Permission.Required="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
                 Margin="5"
                 Command="{Binding PubSubEventCommand}"
                 CommandParameter="DialogView"
-                Content="事件聚合器Event" />
+                Content="事件聚合器" />
         </StackPanel>
 
         <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ModuleContent" />

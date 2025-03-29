@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ModuleA
-{
+{ 
     public class ModuleAProfile : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
+            
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
